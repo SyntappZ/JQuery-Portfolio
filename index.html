@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch|Noto+Sans+SC" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <title>portfolio</title>
 </head>
 <body>
-    <div id="backpage"></div>
+    <div id="backpage">
+        <div class="edge" id="leftEdge"></div>
+        <div class="edge" id="rightEdge"></div>
+    </div>
     <div id="imgpage"></div>
+    
+    
+    
     <div id="cover">
-        <header>
-            <h4><span>s</span>yntappz</h4>
-            <div class="nav">
-                <div id="homeBtn" class="navlink">Home</div>
-                <div id="projectBtn" class="navlink">Projects</div>
-                <div id="aboutBtn" class="navlink">About</div>
-            </div>
-        </header>
+      
         <div class="frontWrap">
             <h1>welcome to my portfolio</h1>
             <div class="textBox">
@@ -42,10 +42,42 @@
                     </div>
                 </div>
                 <div id="aBtn" class="btn">Android</div>
-                
+               
             </div>
+        </div><!---- front page wrap ---->
+
+        <div class="myInfo">
+            <h2>about me</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse quis magna sed lectus vulputate pretium id nec dolor.
+                 Morbi accumsan dapibus lorem quis lobortis. Nulla volutpat tincidunt scelerisque.
+                    convallis nibh, id tincidunt est dui quis lorem. Aliquam arcu arcu, 
+                    tristique ac lectus sit amet, vulputate posuere libero. Donec venenatis erat
+                     sem, et vehicula urna volutpat eu. Morbi porttitor turpis non leo
+                      fringilla mattis. In quis dictum ex, sit amet pulvinar elit.
+                       Pellentesque et mattis tellus, eget ullamcorper mi. Integer blandit
+                 nulla sed ultricies lacinia. Donec dignissim neque sit amet justo accumsan 
+                 eleifend.</p>
+
         </div>
-    </div>
+      <div class="infoBar">
+            
+                    <a href="https://github.com/syntappz" title="Github" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://play.google.com/store/apps/developer?id=SyntappZ" title="Google Play" target="_blank"><i class="fab fa-google-play"></i></a>
+                    <a href="https://codepen.io/biscuitmanz" title="Codepen" target="_blank"><i class="fab fa-codepen"></i></a>
+                    <a href="https://www.freecodecamp.org/biscuitmanz" title="Freecodecamp" target="_blank"><i class="fab fa-free-code-camp"></i></a>
+                    <a href="mailto:syntappz@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                
+      </div>
+    </div><!---- cover wrap ---->
+    <header>
+        <h4><span>s</span>yntappz</h4>
+        <div class="nav">
+            <div id="homeBtn" class="navlink">Home</div>
+            <div id="aboutBtn" class="navlink">About</div>
+            <div id="projectBtn" class="navlink">Projects</div>
+        </div>
+    </header>
 <script src="main.js"></script>
 </body>
 </html>
