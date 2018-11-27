@@ -26,12 +26,23 @@ let proBtn = $('#projectBtn');
 let homeBtn = $('#homeBtn');
 let aboutBtn = $('#aboutBtn');
     proBtn.click(()=>{
-        pageBorder(proBtn, homeBtn, aboutBtn)
-        imgScale('scale(1)', 0); 
-        frontFadeOut(0);
-        imgpageSlide(2000, 600);
-        coverSlide(-1000, 1100);
-        projectEdge(0, 2300);
+        if( $('#imgpage').offset().left === 2000){
+            pageBorder(proBtn, homeBtn, aboutBtn);
+            aboutBar(-100, 0);
+            setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), 300);
+            coverSlide(-1000, 700);
+            projectEdge(0, 1300);
+        }else{
+            
+            pageBorder(proBtn, homeBtn, aboutBtn);
+            imgScale('scale(1)', 0); 
+            frontFadeOut(0);
+            imgpageSlide(2000, 600);
+            coverSlide(-1000, 1100);
+            projectEdge(0, 2300);
+
+        }
+      
         
     })
     homeBtn.click(()=>{
@@ -39,6 +50,9 @@ let aboutBtn = $('#aboutBtn');
         
     })
     aboutBtn.click(()=>{
+        if($('#cover').offset().top === -1000){
+            
+        }
         pageBorder(aboutBtn, proBtn, homeBtn)
         imgScale('scale(1)', 0); 
         frontFadeOut(0);
@@ -90,6 +104,7 @@ let aboutBtn = $('#aboutBtn');
     }
 
     function aboutBar(bot, aBDel){
+        // $('.infoBar').css('display', 'block')
         $('.infoBar').delay(aBDel).animate({bottom: bot})
     }
     
