@@ -1,6 +1,6 @@
 $(document).ready(()=>{
 
-    
+let inprogress = false;    
 let contact = $('#cBtn');
     contact.hover(()=>{
     
@@ -12,7 +12,6 @@ let contact = $('#cBtn');
         }, 400,).css({
             'background-color': 'transparent',
             'border': 'solid #FF8F00 1px',
-            'border-radius':'5px',
             'color': '#FFf',
             'cursor':'default'
             
@@ -29,12 +28,11 @@ let contact = $('#cBtn');
             left:0,
             top:0,
             width:150,
-            height:150,
+            height:40,
         },400, ()=>{
             contact.css({
                 'background-color': '#FF8F00',
                 'border': 'none',
-                'border-radius':'10px',
                 'color': '#000',
                 'cursor':'pointer'
             });
@@ -46,88 +44,132 @@ let contact = $('#cBtn');
     }
 
 let i = 1;
-let boxS = '2px 2px 10px 5px rgba(0, 0, 0, 0.137)';
 let proBtn = $('#projectBtn');
 let homeBtn = $('#homeBtn');
 let aboutBtn = $('#aboutBtn');
 
+let timing = [
+    400,
+    800,
+    1200,
+    1600,
+    2000,
+    2400,
+    2800,
+    3200,
+    3500
+]
+
 
     proBtn.click(()=>{
-        if( $('#imgpage').offset().left === 2000){//from about
-            pageBorder(proBtn, homeBtn, aboutBtn);
-            
-            arrowLinks('0', 'scale(0.8)')
-            aboutBar(-1100, 500);
-            setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), 900);
-            coverSlide(-1000, 1300);
-            projectEdge(0, 2000);
-            setTimeout(projectWrap.bind(null, '1', 'scale(1)'), 2500);
-            setTimeout(boxShadow.bind(null, boxS), 2800);
-            nextButton(3100, 110);
-            setTimeout(cred.bind(null, '1'), 3400);
-        }else{//from home
-            pageBorder(proBtn, homeBtn, aboutBtn);
-            
-            contactShrink()
-            imgScale('scale(1)', 0); 
-            frontFadeOut(0);
-            imgpageSlide(2000, 600);
-            coverSlide(-1000, 1100);
-            projectEdge(0, 2300);
-            setTimeout(projectWrap.bind(null, '1', 'scale(1)'), 2700);
-            nextButton(3000, 110);
-            setTimeout(cred.bind(null, '1'), 3300);
-            
+        if(!inprogress){
+            inprogress = true;
+            if( $('#imgpage').offset().left === 2000){//from about
+                pageBorder(proBtn, homeBtn, aboutBtn);
+                arrowLinks('0', 'scale(0.8)');
+                aboutBar(-1100, timing[0]);
+                setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), timing[1]);
+                coverSlide(-1000, timing[2]);
+                projectEdge(0, timing[4]);
+                setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[5]);
+                nextButton(110, timing[6]);
+                setTimeout(cred.bind(null, '1'), timing[7]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[8])
+                
+            }else{//from home
+                pageBorder(proBtn, homeBtn, aboutBtn);
+                contactShrink();
+                imgScale('scale(1)', 0); 
+                frontFadeOut(0);
+                imgpageSlide(2000, timing[0]);
+                coverSlide(-1000, timing[1]);
+                projectEdge(0, timing[3]);
+                setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[4]);
+                nextButton(110, timing[5]);
+                setTimeout(cred.bind(null, '1'), timing[6]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[7])
+            }
         }
+       
       
         
     })
     homeBtn.click(()=>{
-        if($('#cover').offset().top === -1000){//from projects
-            pageBorder(homeBtn, proBtn, aboutBtn)
-            projectEdge(-40);
-            setTimeout(cred.bind(null, -40), 300)
-            nextButton(800, -50);
-            setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), 1300);
-            coverSlide(0, 1700);
-            imgpageSlide(0, 2300);
-            setTimeout(imgScale.bind(null, 'scale(1.1)'), 2700);
-            frontFadeIn(3200);
-
-        }else{//from about
-            pageBorder(homeBtn, proBtn, aboutBtn)
-            arrowLinks('0', 'scale(0.8)')
-            aboutBar(-1100, 300);
-            setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), 900);
-            imgpageSlide(0, 1700);
-            setTimeout(imgScale.bind(null, 'scale(1.1)'), 2700);
-            frontFadeIn(2800);
-
+        if(!inprogress){
+            inprogress = true;
+            if($('#cover').offset().top === -1000){//from projects
+                pageBorder(homeBtn, proBtn, aboutBtn);
+                    if( $('.edge').width() === 300){
+                        projectEdge(-300);
+                    }else{
+                        projectEdge(-40);
+                    }
+                setTimeout(cred.bind(null, -40), timing[0]);
+                nextButton(-50, timing[1]);
+                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[2]);
+                coverSlide(0, timing[3]);
+                imgpageSlide(0, timing[4]);
+                setTimeout(imgScale.bind(null, 'scale(1.1)'), timing[6]);
+                frontFadeIn(timing[7]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[8])
+            }else{//from about
+                pageBorder(homeBtn, proBtn, aboutBtn);
+                arrowLinks('0', 'scale(0.8)');
+                aboutBar(-1100, timing[0]);
+                setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'),timing[1]);
+                imgpageSlide(0, timing[2]);
+                setTimeout(imgScale.bind(null, 'scale(1.1)'), timing[4]);
+                frontFadeIn(timing[5]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[6])
+            }
         }
+       
         
         
     })
     aboutBtn.click(()=>{//from projects
-        if($('#cover').offset().top === -1000){
-            pageBorder(aboutBtn, proBtn, homeBtn);
-            projectEdge(-40);
-            setTimeout(cred.bind(null, -40), 300)
-            nextButton(500, -50);
-            setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), 1000);
-            coverSlide(0, 1700);
-            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 2600);
-            aboutBar(40, 2800)
-            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 3500)
-        }else{//from home 
-            pageBorder(aboutBtn, proBtn, homeBtn)
-            contactShrink()
-            imgScale('scale(1)', 0); 
-            frontFadeOut(0);
-            imgpageSlide(2000, 600);
-            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 1500)
-            aboutBar(40, 1800)
-            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 2500)
+        if(!inprogress){
+            inprogress = true;
+            if($('#cover').offset().top === -1000){
+                pageBorder(aboutBtn, proBtn, homeBtn);
+                    if( $('.edge').width() === 300){
+                        projectEdge(-300);
+                    }else{
+                        projectEdge(-40);
+                    }
+                setTimeout(cred.bind(null, -40), timing[0]);
+                nextButton(-50, timing[1]);
+                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[2]);
+                coverSlide(0, timing[3]);
+                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[5]);
+                aboutBar(40, timing[6]);
+                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[7]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[8])
+            }else{//from home 
+                pageBorder(aboutBtn, proBtn, homeBtn);
+                contactShrink();
+                imgScale('scale(1)', 0); 
+                frontFadeOut(0);
+                imgpageSlide(2000, timing[0]);
+                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[2]);
+                aboutBar(40, timing[3]);
+                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[4]);
+                setTimeout(()=>{
+                    inprogress = false;
+                },timing[5])
+            }
         }
+       
         
       
     })
@@ -140,13 +182,13 @@ let aboutBtn = $('#aboutBtn');
         $('#imgpage').css('transform', scale);
     }
     function frontFadeOut(fODel){
-        $('.frontWrap').delay(fODel).fadeOut(600);
+        $('.frontWrap').delay(fODel).fadeOut(300);
     }
     function frontFadeIn(fIDel){
-        $('.frontWrap').delay(fIDel).fadeIn(600);
+        $('.frontWrap').delay(fIDel).fadeIn(300);
     }
     function imgpageSlide(dir, iSDel){
-        $('#imgpage').delay(iSDel).animate({left:dir})
+        $('#imgpage').delay(iSDel).animate({left:dir},300)
     }
     function coverSlide(x, cSDel){
         $('#cover').delay(cSDel).animate({top:x})
@@ -171,7 +213,7 @@ let aboutBtn = $('#aboutBtn');
     }
 
     function aboutBar(bot, aBDel){
-        $('.infoBar').delay(aBDel).animate({bottom: bot},500)
+        $('.infoBar').delay(aBDel).animate({bottom: bot},300)
     }
     
     function arrowLinks(o, t){
@@ -184,8 +226,8 @@ let aboutBtn = $('#aboutBtn');
     //projects
 
     function projectEdge(edge, eDel){
-        $('#leftEdge').delay(eDel).animate({left:edge},600);
-        $('#rightEdge').delay(eDel).animate({right:edge},600);
+        $('#leftEdge').delay(eDel).animate({left:edge},300);
+        $('#rightEdge').delay(eDel).animate({right:edge},300);
     }
     function projectWrap(pwop, pws){
         $('.projectWrap').css({
@@ -193,10 +235,8 @@ let aboutBtn = $('#aboutBtn');
             'transform': pws
         },500)
     }
-    function boxShadow(box){
-        $('.proImg').css('boxShadow', box)
-    }
-    function nextButton(bDel, bottom){
+    
+    function nextButton(bottom, bDel){
         $('#nextBtn').delay(bDel).animate({bottom: bottom})
     }
     function cred(cOp){
@@ -211,6 +251,7 @@ let aboutBtn = $('#aboutBtn');
    
    
     $('#nextBtn').click(()=>{
+        proInfo(40);
        projectChange(picArr[i]);
        i++
         if(i === picArr.length){
@@ -239,7 +280,15 @@ let aboutBtn = $('#aboutBtn');
 }
 
 
+$('#info').click(()=>{
+  proInfo(300);
+})
 
+function proInfo(w){
+    $('.edge').animate({
+        width: w
+    },300)
+}
 
 
     
