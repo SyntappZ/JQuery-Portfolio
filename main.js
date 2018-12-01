@@ -36,7 +36,7 @@ let aboutBtn = $('#aboutBtn');
             setTimeout(projectWrap.bind(null, '1', 'scale(1)'), 2500);
             setTimeout(boxShadow.bind(null, boxS), 2800);
             nextButton(3100, 110);
-            setTimeout(cred.bind(null, '1'), 3500);
+            setTimeout(cred.bind(null, '1'), 3400);
         }else{//from home
             pageBorder(proBtn, homeBtn, aboutBtn);
             imgScale('scale(1)', 0); 
@@ -46,7 +46,7 @@ let aboutBtn = $('#aboutBtn');
             projectEdge(0, 2300);
             setTimeout(projectWrap.bind(null, '1', 'scale(1)'), 2700);
             nextButton(3000, 110);
-            setTimeout(cred.bind(null, '1'), 3700);
+            setTimeout(cred.bind(null, '1'), 3300);
         }
       
         
@@ -58,15 +58,15 @@ let aboutBtn = $('#aboutBtn');
             setTimeout(cred.bind(null, -40), 300)
             nextButton(800, -50);
             setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), 1300);
-            coverSlide(0, 2000);
-            imgpageSlide(0, 2700);
-            setTimeout(imgScale.bind(null, 'scale(1.1)'), 4100);
-            frontFadeIn(4200);
+            coverSlide(0, 1700);
+            imgpageSlide(0, 2300);
+            setTimeout(imgScale.bind(null, 'scale(1.1)'), 2700);
+            frontFadeIn(3200);
 
         }else{//from about
             pageBorder(homeBtn, proBtn, aboutBtn)
             arrowLinks('0', 'scale(0.8)')
-            aboutBar(-1100, 500);
+            aboutBar(-1100, 300);
             setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), 900);
             imgpageSlide(0, 1700);
             setTimeout(imgScale.bind(null, 'scale(1.1)'), 2700);
@@ -76,25 +76,25 @@ let aboutBtn = $('#aboutBtn');
         
         
     })
-    aboutBtn.click(()=>{
+    aboutBtn.click(()=>{//from projects
         if($('#cover').offset().top === -1000){
             pageBorder(aboutBtn, proBtn, homeBtn);
             projectEdge(-40);
             setTimeout(cred.bind(null, -40), 300)
-            nextButton(800, -50);
-            setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), 1300);
-            coverSlide(0, 2000);
-            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 3200);
-            aboutBar(40, 3700)
-            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 4300)
-        }else{
+            nextButton(500, -50);
+            setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), 1000);
+            coverSlide(0, 1700);
+            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 2600);
+            aboutBar(40, 2800)
+            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 3500)
+        }else{//from home 
             pageBorder(aboutBtn, proBtn, homeBtn)
             imgScale('scale(1)', 0); 
             frontFadeOut(0);
             imgpageSlide(2000, 600);
-            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 1700)
-            aboutBar(40, 2100)
-            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 2900)
+            setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), 1500)
+            aboutBar(40, 1800)
+            setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), 2500)
         }
         
       
@@ -171,4 +171,27 @@ let aboutBtn = $('#aboutBtn');
         $('#cred').css('opacity', cOp);
     }
    
+    let dailyG =  $('.image').attr("src", "img/pro1.png");
+    let rapidJs = $('.image').attr("src", "img/pro2.png");
+    let sClothes = $('.image').attr("src", "img/pro3.png");
+   
+    $('#nextBtn').click(()=>{
+       if($('.image').attr() === dailyG){
+        rapidJs
+       }
+       
+        
+    })
+
+    
+       
+
+
+
+
+
+    
+
+
+
 })
