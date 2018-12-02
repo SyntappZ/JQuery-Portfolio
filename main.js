@@ -101,24 +101,25 @@ let timing = [
     homeBtn.click(()=>{
         if(!inprogress){
             inprogress = true;
-            if($('#cover').offset().top === -1000){//from projects
+            if($('#cover').offset().top === -1000){   //from projects
                 pageBorder(homeBtn, proBtn, aboutBtn);
                     if( $('.edge').width() === 300){
                         projectEdge(-300);
                     }else{
                         projectEdge(-40);
                     }
-                setTimeout(cred.bind(null, -40), timing[0]);
-                nextButton(-50, timing[1]);
-                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[2]);
-                coverSlide(0, timing[3]);
-                imgpageSlide(0, timing[4]);
-                setTimeout(imgScale.bind(null, 'scale(1.1)'), timing[6]);
-                frontFadeIn(timing[7]);
+                setTimeout(cred.bind(null, -40), 0);
+                nextButton(-50, 0);
+                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[0]);
+                coverSlide(0, timing[1]);
+                imgpageSlide(0, timing[2]);
+                setTimeout(imgScale.bind(null, 'scale(1.1)'), timing[4]);
+                frontFadeIn(timing[5]);
                 setTimeout(()=>{
                     inprogress = false;
-                },timing[8])
-            }else{//from about
+                },timing[6])
+
+            }else{       //from about
                 pageBorder(homeBtn, proBtn, aboutBtn);
                 arrowLinks('0', 'scale(0.8)');
                 aboutBar(-1100, timing[0]);
@@ -135,7 +136,7 @@ let timing = [
         
         
     })
-    aboutBtn.click(()=>{//from projects
+    aboutBtn.click(()=>{     //from projects
         if(!inprogress){
             inprogress = true;
             if($('#cover').offset().top === -1000){
@@ -145,16 +146,16 @@ let timing = [
                     }else{
                         projectEdge(-40);
                     }
-                setTimeout(cred.bind(null, -40), timing[0]);
-                nextButton(-50, timing[1]);
-                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[2]);
-                coverSlide(0, timing[3]);
-                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[5]);
-                aboutBar(40, timing[6]);
-                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[7]);
+                setTimeout(cred.bind(null, -40), 0);
+                nextButton(-50, 0);
+                setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[0]);
+                coverSlide(0, timing[1]);
+                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[2]);
+                aboutBar(40, timing[3]);
+                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[4]);
                 setTimeout(()=>{
                     inprogress = false;
-                },timing[8])
+                },timing[5])
             }else{//from home 
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 contactShrink();

@@ -20,13 +20,13 @@ body{
     background: url(img/background.jpg);
     background-size:cover;
     transform: scale(1.1);
-    transition: .6s ease-in-out;
+    transition: .4s ease-in-out;
    
 }
 #cover{
     background-color:rgba(0, 0, 0, 0.849);
     color:#fff;
-    transition: .6s ease-in-out;
+    transition: .4s ease-in-out;
 }
 
 header{
@@ -179,7 +179,7 @@ span{
     padding:40px;
     opacity: 0;
     transform:scale(0.8);
-    transition: .5s ease-in-out;
+    transition: .4s ease-in-out;
 }
 .myInfo h2{
     margin:30px;
@@ -224,7 +224,7 @@ span{
     color:#FF8F00;
     font-size:30px;
     opacity: 0;
-    transition:.5s ease-in-out;
+    transition:.4s ease-in-out;
     transform: scale(0.8);
 }
 .arrow p{
@@ -266,7 +266,7 @@ span{
     margin:200px auto 0 auto;
     opacity: 0;
     transform: scale(0.8);
-    transition: .5s ease-in-out;
+    transition: .4s ease-in-out;
    
 }
 .proImg{
@@ -275,7 +275,7 @@ span{
     height:auto;
     margin:auto;
     cursor: pointer;
-    transition:.5s ease-in-out;
+    transition:.4s ease-in-out;
     position: relative;
     
 
@@ -292,7 +292,7 @@ span{
     background-color:rgba(0, 0, 0, 0);
     position:absolute;
     top:0;
-    transition:.3s ease-in-out;
+    transition:.4s ease-in-out;
    
 }
 .procover:hover{
@@ -310,7 +310,7 @@ span{
     height:100%;
     transform: scale(1.1);
     opacity: 0;
-    transition:.3s ease-in-out;
+    transition:.4s ease-in-out;
 }
 #visit, #git, #info{
     background-color:rgb(17, 17, 17);
@@ -346,5 +346,5 @@ span{
     color:#BDD3DE;
     display:block;
     opacity: 0;
-    transition: .6s ease-in-out;
+    transition: .4s ease-in-out;
 }
