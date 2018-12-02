@@ -150,12 +150,13 @@ let timing = [
                 nextButton(-50, 0);
                 setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[0]);
                 coverSlide(0, timing[1]);
-                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[2]);
-                aboutBar(40, timing[3]);
-                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[4]);
+                setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[3]);
+                aboutBar(40, timing[4]);
+                setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[5]);
                 setTimeout(()=>{
                     inprogress = false;
-                },timing[5])
+                },timing[6])
+
             }else{//from home 
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 contactShrink();
@@ -177,7 +178,7 @@ let timing = [
 
 
     
-            
+    //home        
        
     function imgScale(scale){
         $('#imgpage').css('transform', scale);
@@ -200,7 +201,7 @@ let timing = [
         btn1.css('border-bottom', 'solid 4px #FF8F00')
         btn2.css('border-bottom', 'none')
         btn3.css('border-bottom', 'none')
-}
+    }
 
       
 
@@ -234,7 +235,7 @@ let timing = [
         $('.projectWrap').css({
             'opacity': pwop,
             'transform': pws
-        },500)
+        },timing[0])
     }
     
     function nextButton(bottom, bDel){
@@ -250,9 +251,8 @@ let timing = [
         "img/pro3.png"
     ]
    
-   
+   //next button
     $('#nextBtn').click(()=>{
-        proInfo(40);
        projectChange(picArr[i]);
        i++
         if(i === picArr.length){
@@ -264,8 +264,8 @@ let timing = [
             transform: 'scale(0.8)',
             opacity: '0'
         })
-        setTimeout(changeImg.bind(null, x),500);
-        setTimeout(fadeDelay, 800);
+        setTimeout(changeImg.bind(null, x),timing[1]);
+        setTimeout(fadeDelay, timing[2]);
 
     }
 
@@ -278,22 +278,58 @@ let timing = [
             transform: 'scale(1)',
             opacity: '1'
         })
-}
+    }
 
 
-$('#info').click(()=>{
-  proInfo(300);
-})
+   
 
-function proInfo(w){
-    $('.edge').animate({
-        width: w
-    },300)
-}
+   
+//project buttons
+
+     //info button
+     $('#info').click(()=>{
+        proInfo(300);
+        insideWidth(270);
+    })
 
 
-    
+    //visit button
+    $('#visit').click(()=>{
+       project();
+    })
 
+    //github button
+    $('#git').click(()=>{
+        project();
+     })
+
+     function insideWidth(a){
+         $('.insideEdge').animate({
+             width:a
+         })
+     }
+
+    function proInfo(w){
+        $('.edge').animate({
+            width:w
+        },timing[0]);
+    }
+
+
+    function project(){
+        if(picArr[i] === picArr[1]){
+            $('#visit a').attr('href', 'https://daily-guide.tk/');
+            $('#git a').attr('href', 'https://github.com/SyntappZ/Daily-Guide');
+        }
+        else if(picArr[i] === picArr[2]){
+            $('#visit a').attr('href', 'https://rapid-javascript.tk/');
+            $('#git a').attr('href', 'https://github.com/SyntappZ/Rapid-Javascript');
+        }
+        else{
+            $('#visit a').attr('href', 'https://syntappz-clothes.tk/');
+            $('#git a').attr('href', 'https://github.com/SyntappZ/syntappz-clothes');
+        }
+    }
 
 
 })

@@ -261,6 +261,14 @@ span{
 #rightEdge{
     right:-40px;
 }
+
+.insideEdge{
+    width:0;
+    background-color:rgba(0, 0, 0, 0.205);
+    height:80vh;
+    margin:10vh auto;
+}
+
 .projectWrap{
     width:100%;
     margin:200px auto 0 auto;
@@ -277,7 +285,7 @@ span{
     cursor: pointer;
     transition:.4s ease-in-out;
     position: relative;
-    
+    box-shadow:2px 2px 7px 2px rgba(0, 0, 0, 0.185);
 
 }
 .image{
@@ -317,6 +325,12 @@ span{
     border:solid 1px #FF8F00;
     color:#FF8F00;
     text-align:center;
+}
+#visit a, #git a{
+    text-decoration: none;
+    color:#FF8F00;
+    width:100%;
+    display: block;
 }
 
 
