@@ -264,9 +264,19 @@ span{
 
 .insideEdge{
     width:0;
-    background-color:rgba(0, 0, 0, 0.205);
     height:80vh;
     margin:10vh auto;
+}
+.edgeInfo{
+    opacity: 0;
+    text-align:center;
+    padding:20px;
+    transition: .4s ease-in-out;
+    
+}
+.edgeInfo h3{
+    margin:10px 0;
+   
 }
 
 .projectWrap{
@@ -361,4 +371,17 @@ span{
     display:block;
     opacity: 0;
     transition: .4s ease-in-out;
+}
+
+
+/*----- tablet -----*/
+@media (min-width: 750px) and (max-width: 1050px){
+    .responsiveWrap{
+        overflow: hidden;
+    }
+}
+
+/*----- mobile -----*/
+@media (min-width: 300px) and (max-width: 650px){
+
 }
