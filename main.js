@@ -1,5 +1,8 @@
 $(document).ready(()=>{
 
+
+//contact
+
 let inprogress = false;    
 let contact = $('#cBtn');
     contact.hover(()=>{
@@ -43,11 +46,14 @@ let contact = $('#cBtn');
         })
     }
 
+
+//--------------------------- nav buttons -----------------
 let i = 1;
 let proBtn = $('#projectBtn');
 let homeBtn = $('#homeBtn');
 let aboutBtn = $('#aboutBtn');
 
+//timing
 let timing = [
     400,
     800,
@@ -60,12 +66,13 @@ let timing = [
     3500
 ]
 
-
+//projects button
     proBtn.click(()=>{
         if(!inprogress){
             inprogress = true;
-            if( $('#imgpage').offset().left === 2000){//from about
+            if( $('#imgpage').offset().left === 2000){    //from about
                 pageBorder(proBtn, homeBtn, aboutBtn);
+                techSkills('250px', '0');
                 arrowLinks('0', 'scale(0.8)');
                 aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), timing[1]);
@@ -78,7 +85,7 @@ let timing = [
                     inprogress = false;
                 },timing[8])
                 
-            }else{//from home
+            }else{      //from home
                 pageBorder(proBtn, homeBtn, aboutBtn);
                 contactShrink();
                 imgScale('scale(1)', 0); 
@@ -94,10 +101,10 @@ let timing = [
                 },timing[7])
             }
         }
-       
-      
         
     })
+
+//home button
     homeBtn.click(()=>{
         if(!inprogress){
             inprogress = true;
@@ -119,8 +126,9 @@ let timing = [
                     inprogress = false;
                 },timing[6])
 
-            }else{       //from about
+            }else{    //from about
                 pageBorder(homeBtn, proBtn, aboutBtn);
+                techSkills('250px', '0');
                 arrowLinks('0', 'scale(0.8)');
                 aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'),timing[1]);
@@ -136,11 +144,14 @@ let timing = [
         
         
     })
-    aboutBtn.click(()=>{     //from projects
+
+  //about button
+    aboutBtn.click(()=>{   //from projects
         if(!inprogress){
             inprogress = true;
             if($('#cover').offset().top === -1000){
                 pageBorder(aboutBtn, proBtn, homeBtn);
+                
                     if( $('.edge').width() === 300){
                         projectEdge(-300);
                     }else{
@@ -153,11 +164,12 @@ let timing = [
                 setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[3]);
                 aboutBar(40, timing[4]);
                 setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[5]);
+                setTimeout(techSkills.bind(null, '270px', '1'),timing[6])
                 setTimeout(()=>{
                     inprogress = false;
-                },timing[6])
+                },timing[7])
 
-            }else{//from home 
+            }else{      //from home 
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 contactShrink();
                 imgScale('scale(1)', 0); 
@@ -166,9 +178,10 @@ let timing = [
                 setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[2]);
                 aboutBar(40, timing[3]);
                 setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[4]);
+                setTimeout(techSkills.bind(null, '270px', '1'),timing[5])
                 setTimeout(()=>{
                     inprogress = false;
-                },timing[5])
+                },timing[6])
             }
         }
        
@@ -178,7 +191,7 @@ let timing = [
 
 
     
-    //home        
+    //--------------------- home functions --------------------------      
        
     function imgScale(scale){
         $('#imgpage').css('transform', scale);
@@ -205,7 +218,7 @@ let timing = [
 
       
 
-    //about
+    //------------------------- about functions -------------------------
 
     function aboutInfo(mIscale, op){
         $('.myInfo').css({
@@ -224,8 +237,14 @@ let timing = [
             'transform': t
         });
     }
+    function techSkills(tp, opac){
+        $('.techskills').css({
+            'top': tp,
+            'opacity': opac
+        });
+    }
 
-    //projects
+    //--------------------- projects functions -----------------------
 
     function projectEdge(edge, eDel){
         $('#leftEdge').delay(eDel).animate({left:edge},300);
@@ -295,7 +314,8 @@ let timing = [
      $('#info').click(()=>{
         proInfo(300);
         insideWidth(270);
-        project();
+        infoChanger();
+        
     })
 
 
@@ -321,8 +341,12 @@ let timing = [
             width:w
         },timing[0]);
     }
+    function edgeClose(){
+        proInfo(0);
+        insideWidth(0);
+    }
 
-
+//project info changer
     let dailyPro = '<p>Daily Guide is a personal project im making just to make the daily choices easier its made with html/css and vanilla javascript. this is the first site that i done javascript on my own and not with help from tutorials, i now know how to use random in javascript, also it really helped me understand arrays more i learnt how to use choose what information is showed from the array depending on the day of the week, i also learnt how to make a slide out nav and a page loader while making this project. this page is fully responsive tablet and phone it helped me understand how to change the functionality of the page for the different page sizes.</p>'
     let rapid = '<p>Rapid Javascript was my first ever javascript project it was a follow along tutorial on youtube and then turned it into my own game of javascript words that get harder as you progress and i added changes like a button to it to change the difficulty and start and end screens. buildiing this project helped me understand how to use countdowns and how if statements work also i understand arrays a bit better now, i also know how to grab dom elements with javascript now too.</p>'
     let sClothes = '<p>Syntappz Clothes was my first clothes site i learnt quite a lot about javascript making this site this is the most javascript i have wrote on my own before my jquery portfolio, i would say this was my first proper site, i learnt how to use a loop to make the same animation happen to multiple objects which saved some code writing and this has made me understand loops a bit more, i learnt a lot about animations making this site and using setTimeout to make them run at diffent times, i also understand how to use parameters a lot better in functions now and using images in javascript too. i have not made this site responsive as this was made just to learn javascript, maybe i will look into that in the future.</p>'
@@ -330,16 +354,26 @@ let timing = [
         if(picArr[i] === picArr[1]){
             $('#visit a').attr('href', 'https://daily-guide.tk/');
             $('#git a').attr('href', 'https://github.com/SyntappZ/Daily-Guide');
-           setTimeout(edgeInfo.bind(null, dailyPro, '1'), 400);
+           
         }
         else if(picArr[i] === picArr[2]){
             $('#visit a').attr('href', 'https://rapid-javascript.tk/');
             $('#git a').attr('href', 'https://github.com/SyntappZ/Rapid-Javascript');
-            setTimeout(edgeInfo.bind(null, rapid, '1'), 400);
+            
         }
         else{
             $('#visit a').attr('href', 'https://syntappz-clothes.tk/');
             $('#git a').attr('href', 'https://github.com/SyntappZ/syntappz-clothes');
+           
+        }
+    }
+    function infoChanger(){
+        if(picArr[i] === picArr[1]){
+            setTimeout(edgeInfo.bind(null, dailyPro, '1'), 400);
+        }
+        else if(picArr[i] === picArr[2]){
+            setTimeout(edgeInfo.bind(null, rapid, '1'), 400);
+        }else{
             setTimeout(edgeInfo.bind(null, sClothes, '1'), 400);
         }
     }

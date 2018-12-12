@@ -246,6 +246,21 @@ span{
     }
 }
 
+.techskills{
+    position: absolute;
+    color:#FF8F00;
+    top:250px;
+    left:250px;
+    opacity: 0;
+    transition: .4s ease-in-out;
+
+}
+.techskills li{
+    line-height:40px;
+    list-style: none;
+    text-transform: capitalize;
+    margin-left:-20px;
+}
 /*-------- projects page ---------*/
 
 
