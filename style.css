@@ -277,21 +277,37 @@ span{
     right:-40px;
 }
 
-.insideEdge{
-    width:0;
-    height:80vh;
-    margin:10vh auto;
-}
-.edgeInfo{
+.infobox{
+    width:400px;
+    height:600px;
+    position: absolute;
+    outline:solid 2px #FF8F00;
+    outline-offset: -40px;
+    top:150px;
+    left:120px;
     opacity: 0;
-    text-align:center;
-    padding:20px;
+    background-color:rgb(37, 51, 59);
     transition: .4s ease-in-out;
-    
 }
-.edgeInfo h3{
-    margin:10px 0;
-   
+.pInfo{
+    margin-top:40px;
+    padding:50px;
+    transition: .4s ease-in-out;
+    color:#fff;
+    text-align: center;
+    transform: scale(0.6);
+    opacity: 0;
+}
+.infobox h3{
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    background-color:rgb(37, 51, 59);
+    text-align:center;
+    top: 2px;
+    color:#FF8F00;
+    padding: 0 10px;
+    font-size:22px;
 }
 
 .projectWrap{
