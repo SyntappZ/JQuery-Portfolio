@@ -113,6 +113,7 @@ let timing = [
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
                 nextButton(-50, 0);
+                infoBox('0', '140px');
                 setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[0]);
                 coverSlide(0, timing[1]);
                 imgpageSlide(0, timing[2]);
@@ -150,6 +151,7 @@ let timing = [
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
                 nextButton(-50, 0);
+                infoBox('0', '140px');
                 setTimeout(projectWrap.bind(null, '0', 'scale(0.8)'), timing[0]);
                 coverSlide(0, timing[1]);
                 setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[3]);
@@ -302,16 +304,8 @@ let timing = [
 
      //info button
      $('#info').click(()=>{
-         if( $('.infobox').css('opacity' === '1')){
-            infoChanger();
-         }else{
-            infoBox('1', '100px');
-            setTimeout(() => {
-                infoChanger();
-            }, 400);
-         }
-        
-        
+        infoBox('1', '100px');
+        setTimeout(infoChanger, timing[0]);
     })
 
 
@@ -372,7 +366,7 @@ let timing = [
         })
          setTimeout(() => {
              $('.pInfo p').remove();
-         }, 400);
+         }, timing[0]);
       }
         
     
@@ -391,10 +385,23 @@ let timing = [
 
 
     function infoBox(iop, il){
-        $('.infobox').css({
-            opacity: iop,
-            left: il
-        })
+        if($('.infobox').css('opacity') === '1'){
+            closeInfo()
+            setTimeout(()=>{
+                $('.infobox').css({
+                    opacity: iop,
+                    left: il
+                })
+            }, timing[0])
+        
+        }else{
+            $('.infobox').css({
+                opacity: iop,
+                left: il
+            })
+        }
+
+        
     }
 
     

@@ -279,12 +279,12 @@ span{
 
 .infobox{
     width:400px;
-    height:600px;
+    height:800px;
     position: absolute;
     outline:solid 2px #FF8F00;
     outline-offset: -40px;
-    top:150px;
-    left:120px;
+    top:130px;
+    left:140px;
     opacity: 0;
     background-color:rgb(37, 51, 59);
     transition: .4s ease-in-out;
@@ -297,6 +297,7 @@ span{
     text-align: center;
     transform: scale(0.6);
     opacity: 0;
+    line-height: 30px;
 }
 .infobox h3{
     position: absolute;
