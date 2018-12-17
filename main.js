@@ -6,7 +6,23 @@ $(document).ready(()=>{
 let inprogress = false;    
 let contact = $('#cBtn');
     contact.hover(()=>{
-    
+    if($(window).width() < 1050 && $(window).width() > 750){
+        contact.animate({
+            left:-70,
+            top:-150,
+            width:400,
+            height:450,
+        }, 400,).css({
+            'background-color': 'transparent',
+            'border': 'solid #FF8F00 1px',
+            'color': '#FFf',
+            'cursor':'default'
+            
+        });
+        $('#aBtn').css('margin-top', '-70px');
+        
+       
+    }else{
         contact.animate({
             left:-300,
             top:-300,
@@ -19,6 +35,12 @@ let contact = $('#cBtn');
             'cursor':'default'
             
         });
+    }
+
+    
+       
+    
+       
         $('#com').css('display', 'none')
         $('.hoverContact').css({
             'display': 'block',
@@ -72,11 +94,17 @@ let timing = [
             inprogress = true;
             if( $('#imgpage').offset().left === 2000){    //from about
                 pageBorder(proBtn, homeBtn, aboutBtn);
-                techSkills('250px', '0');
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    techSkills('30px', '0');
+                    coverSlide(-1500, timing[2]);
+                }else{
+                    techSkills('250px', '0');
+                    coverSlide(-1000, timing[2]);
+                }
                 arrowLinks('0', 'scale(0.8)');
                 aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), timing[1]);
-                coverSlide(-1000, timing[2]);
+               
                 projectEdge(0, timing[4]);
                 setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[5]);
                 nextButton(110, timing[6]);
@@ -86,12 +114,17 @@ let timing = [
                 },timing[8])
                 
             }else{      //from home
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    $('#aBtn').css('margin-top', '20px');
+                    coverSlide(-1500, timing[1]);
+                }else{
+                    coverSlide(-1000, timing[1]);
+                }
                 pageBorder(proBtn, homeBtn, aboutBtn);
                 contactShrink();
                 imgScale('scale(1)', 0); 
                 frontFadeOut(0);
                 imgpageSlide(2000, timing[0]);
-                coverSlide(-1000, timing[1]);
                 projectEdge(0, timing[3]);
                 setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[4]);
                 nextButton(110, timing[5]);
@@ -108,7 +141,7 @@ let timing = [
     homeBtn.click(()=>{
         if(!inprogress){
             inprogress = true;
-            if($('#cover').offset().top === -1000){   //from projects
+            if($('#cover').offset().top > -1000){   //from projects
                 pageBorder(homeBtn, proBtn, aboutBtn);
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
@@ -125,7 +158,12 @@ let timing = [
 
             }else{    //from about
                 pageBorder(homeBtn, proBtn, aboutBtn);
-                techSkills('250px', '0');
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    techSkills('30px', '0');
+                }else{
+                    techSkills('250px', '0');
+                }
+               
                 arrowLinks('0', 'scale(0.8)');
                 aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'),timing[1]);
@@ -146,7 +184,7 @@ let timing = [
     aboutBtn.click(()=>{   //from projects
         if(!inprogress){
             inprogress = true;
-            if($('#cover').offset().top === -1000){
+            if($('#cover').offset().top === -1000 || $('#cover').offset().top === -1500){
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
@@ -157,12 +195,20 @@ let timing = [
                 setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[3]);
                 aboutBar(40, timing[4]);
                 setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[5]);
-                setTimeout(techSkills.bind(null, '270px', '1'),timing[6])
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    setTimeout(techSkills.bind(null, '100px', '1'),timing[6])
+                }else{
+                    setTimeout(techSkills.bind(null, '270px', '1'),timing[6])
+                }
+                
                 setTimeout(()=>{
                     inprogress = false;
                 },timing[7])
 
             }else{      //from home 
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    $('#aBtn').css('margin-top', '20px');
+                }
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 contactShrink();
                 imgScale('scale(1)', 0); 
@@ -171,7 +217,11 @@ let timing = [
                 setTimeout(aboutInfo.bind(null, 'scale(1)', '1'), timing[2]);
                 aboutBar(40, timing[3]);
                 setTimeout(arrowLinks.bind(null, '1', 'scale(1)'), timing[4]);
-                setTimeout(techSkills.bind(null, '270px', '1'),timing[5])
+                if($(window).width() < 1050 && $(window).width() > 750){
+                    setTimeout(techSkills.bind(null, '100px', '1'),timing[5])
+                }else{
+                    setTimeout(techSkills.bind(null, '270px', '1'),timing[5])
+                }
                 setTimeout(()=>{
                     inprogress = false;
                 },timing[6])

@@ -53,6 +53,7 @@ span{
     width:400px;
     display:flex;
     justify-content: space-around;
+    
 }
 .navlink{
     transition:.2s ease-in-out;
@@ -411,6 +412,57 @@ span{
     .responsiveWrap{
         overflow: hidden;
     }
+    #cBtn, #aBtn{
+        float:none;
+        margin:auto;
+    }
+    #aBtn{
+        margin-top:20px;
+    }
+    /*------ about --------*/
+    .myInfo{
+        width:80%;
+        top:300px;
+    }
+    .techskills{
+        position: relative;
+        top:30px;
+        text-align:center;
+        left:0;
+       
+
+    }
+    .techskills ul{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        align-items: center;
+        width:50%;
+        margin:auto;
+    }
+    .techskills li{
+        line-height: 30px;
+        margin:5px;
+    }
+    .arrow{
+        top:800px;
+    }
+    /*------ projects --------*/
+    .proImg{
+        max-width: 70%;
+    }
+    .probtnWrap{
+        transform: scale(1);
+        opacity: 1;
+        justify-content: space-around;
+        height: auto;
+       position: relative;
+       top:-60px;
+    }
+    .infoBar{
+        bottom:-1600px;
+    }
+
 }
 
 /*----- mobile -----*/
