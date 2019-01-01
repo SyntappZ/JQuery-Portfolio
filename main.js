@@ -97,14 +97,14 @@ let timing = [
                 if($(window).width() < 1050 && $(window).width() > 750){
                     techSkills('30px', '0');
                     coverSlide(-1500, timing[2]);
+                    aboutBar(-1600, timing[0]);
                 }else{
                     techSkills('250px', '0');
                     coverSlide(-1000, timing[2]);
+                    aboutBar(-1100, timing[0]);
                 }
                 arrowLinks('0', 'scale(0.8)');
-                aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), timing[1]);
-               
                 projectEdge(0, timing[4]);
                 setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[5]);
                 nextButton(110, timing[6]);
@@ -141,7 +141,7 @@ let timing = [
     homeBtn.click(()=>{
         if(!inprogress){
             inprogress = true;
-            if($('#cover').offset().top > -1000){   //from projects
+            if($('#cover').offset().top === -1000){   //from projects
                 pageBorder(homeBtn, proBtn, aboutBtn);
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
@@ -156,16 +156,16 @@ let timing = [
                     inprogress = false;
                 },timing[6])
 
-            }else{    //from about
+            }else if($('#cover').offset().top > -1000){    //from about
                 pageBorder(homeBtn, proBtn, aboutBtn);
                 if($(window).width() < 1050 && $(window).width() > 750){
                     techSkills('30px', '0');
+                    aboutBar(-1600, timing[0]);
                 }else{
                     techSkills('250px', '0');
+                    aboutBar(-1100, timing[0]);
                 }
-               
                 arrowLinks('0', 'scale(0.8)');
-                aboutBar(-1100, timing[0]);
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'),timing[1]);
                 imgpageSlide(0, timing[2]);
                 setTimeout(imgScale.bind(null, 'scale(1.1)'), timing[4]);
@@ -354,7 +354,13 @@ let timing = [
 
      //info button
      $('#info').click(()=>{
-        infoBox('1', '100px');
+        if($(window).width() < 1050 && $(window).width() > 750){
+            infoBox('1', '0');
+        }else{
+            infoBox('1', '100px');
+        }
+
+       
         setTimeout(infoChanger, timing[0]);
     })
 

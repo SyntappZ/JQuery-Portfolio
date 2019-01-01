@@ -462,7 +462,25 @@ span{
     .infoBar{
         bottom:-1600px;
     }
-
+    .infobox{
+        width:650px;
+        height:350px;
+        top:500px;
+        left:0;
+        right:0;
+        margin:auto;
+    }
+    .pInfo{
+        margin-top:10px;
+        font-size:12px;
+    }
+    /*---- img page ----*/
+    #imgpage{
+        background-size:cover;
+        background-position: center;
+       
+       
+    }
 }
 
 /*----- mobile -----*/
