@@ -141,6 +141,7 @@ span{
     color:#fff;
 
 }
+
 .textArea{
     width:80%;
     height:30px;
@@ -311,6 +312,9 @@ span{
     padding: 0 10px;
     font-size:22px;
 }
+#backBtn{
+    display:none;
+}
 
 .projectWrap{
     width:100%;
@@ -412,6 +416,7 @@ span{
     .responsiveWrap{
         overflow: hidden;
     }
+    
     #cBtn, #aBtn{
         float:none;
         margin:auto;
@@ -476,14 +481,112 @@ span{
     }
     /*---- img page ----*/
     #imgpage{
-        background-size:cover;
         background-position: center;
-       
-       
     }
 }
 
 /*----- mobile -----*/
 @media (min-width: 300px) and (max-width: 650px){
+    header{
+        flex-wrap:wrap;
+    }
+    .frontWrap{
+        width:90%;
+    }
+    .textBox{
+        width:auto;
+        height:auto;
+        margin:auto;
+    }
+    .btnWrap{
+        width:100%;
+        margin:40px auto 0 auto;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        height:auto;
+    }
 
+    #imgpage{
+        background-position: center;
+    }
+    #aBtn, #cBtn{
+        margin:10px;
+    }
+    .nameEmail, .textArea{
+        border-bottom:solid 1px #000;
+        
+    }
+    ::placeholder{
+        color:rgb(20, 20, 20);
+    }
+    #messageBtn{
+        color:rgb(250, 236, 40);
+        border:solid 1px #000;
+    }
+
+    /*---- about ----*/
+    .myInfo{
+        width:90%;
+        height:auto;
+        position: absolute;
+        left:0;
+        right:0;
+        top:120px;
+        color:#fff;
+        text-align: center;
+        padding:0;
+      
+    }
+    .myInfo p {
+        line-height: 20px;
+        font-size:12px;
+    }
+    .techskills{
+        display:none;
+    }
+    .arrow{
+        display:none;
+    }
+    .infoBar{
+      
+        width:240px;
+        height:60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .infoBar i{
+        font-size:20px;
+        padding:10px;
+    }
+    /*-- projects --*/
+
+    #leftEdge, #rightEdge{
+        display:none;
+    }
+    .probtnWrap{
+        transform: scale(1);
+        opacity: 1;
+        justify-content: space-around;
+        height: auto;
+        position: relative;
+        top:170px;
+    }
+    .infobox{
+        width:100vw;
+        height:100vh;
+        top:0;
+        left:0;
+    }
+    .pInfo{
+        font-size:12px;
+        line-height:25px;
+        margin-top:10px
+    }
+    #backBtn{
+        display:block;
+        margin:auto;
+        text-align:center;
+    }
 }

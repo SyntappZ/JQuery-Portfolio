@@ -20,8 +20,21 @@ let contact = $('#cBtn');
             
         });
         $('#aBtn').css('margin-top', '-70px');
-        
-       
+    }
+    else if($(window).width() < 750){
+        contact.animate({
+            left:0,
+            top:-250,
+            width:innerWidth,
+            height:600,
+        }, 200,).css({
+            'background-color': '#FF8F00',
+            'border': 'solid #FF8F00 1px',
+            'color': '#000',
+            'cursor':'default'
+            
+        });
+     
     }else{
         contact.animate({
             left:-300,
@@ -98,6 +111,8 @@ let timing = [
                     techSkills('30px', '0');
                     coverSlide(-1500, timing[2]);
                     aboutBar(-1600, timing[0]);
+                
+                
                 }else{
                     techSkills('250px', '0');
                     coverSlide(-1000, timing[2]);
@@ -356,6 +371,12 @@ let timing = [
      $('#info').click(()=>{
         if($(window).width() < 1050 && $(window).width() > 750){
             infoBox('1', '0');
+        }
+        else if($(window).width() < 750){
+            zIndex('1')
+            setTimeout(() => {
+                infoBox('1', '0');
+            }, 400);
         }else{
             infoBox('1', '100px');
         }
@@ -375,8 +396,21 @@ let timing = [
         project();
      })
      
+     //back button
+     $('#backBtn').click(()=>{
+        infoboxScale('scale(0)')
+        setTimeout(() => {
+            infoBox('0', '0');
+        }, 400);
+        setTimeout(() => {
+            infoboxScale('scale(1)')
+            zIndex('0');
+        }, 1200);
+     })
 
-     
+     function zIndex(z){
+        $('.infobox').css('z-index', z)
+     }
     
    
 
@@ -456,8 +490,10 @@ let timing = [
                 left: il
             })
         }
+    }
 
-        
+    function infoboxScale(scl){
+        $('.infobox').css('transform',scl)
     }
 
     
