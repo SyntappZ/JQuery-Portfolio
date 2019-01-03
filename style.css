@@ -5,7 +5,8 @@ body{
     margin:0;
     padding:0;
     overflow:hidden;
-    font-family: 'Chakra Petch', sans-serif;;
+    font-family: 'Chakra Petch', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 #backpage, #imgpage, #cover{
@@ -61,6 +62,7 @@ span{
 #homeBtn{
     border-bottom:solid 4px #FF8F00;
 }
+
 
 /*--------- front content -----------*/
 
@@ -328,6 +330,7 @@ span{
     box-shadow:2px 2px 7px 2px rgba(0, 0, 0, 0.185);
 
 }
+
 .image{
    width:100%;
    display: block;
@@ -343,6 +346,7 @@ span{
     transition:.4s ease-in-out;
    
 }
+
 .procover:hover{
     background-color:rgba(0, 0, 0, 0.432);
 }
@@ -359,6 +363,9 @@ span{
     transform: scale(1.1);
     opacity: 0;
     transition:.4s ease-in-out;
+}
+.probtnWrap:focus{
+    outline:0;
 }
 #visit, #git, #info{
     background-color:rgb(17, 17, 17);
@@ -578,13 +585,13 @@ span{
         left:0;
     }
     .pInfo{
-        font-size:12px;
+        font-size:1.6vh;
         line-height:25px;
         margin-top:10px
     }
     #backBtn{
         display:block;
-        margin:auto;
+        margin:0 auto;
         text-align:center;
     }
 }
