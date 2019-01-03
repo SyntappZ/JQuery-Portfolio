@@ -122,7 +122,12 @@ let timing = [
                 setTimeout(aboutInfo.bind(null, 'scale(0.7)', '0'), timing[1]);
                 projectEdge(0, timing[4]);
                 setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[5]);
-                nextButton(110, timing[6]);
+                if($(window).width() < 750){
+                    nextButton(70, timing[6]);
+                }else{
+                    nextButton(110, timing[6]);
+                }
+               
                 setTimeout(cred.bind(null, '1'), timing[7]);
                 setTimeout(()=>{
                     inprogress = false;
@@ -142,7 +147,11 @@ let timing = [
                 imgpageSlide(2000, timing[0]);
                 projectEdge(0, timing[3]);
                 setTimeout(projectWrap.bind(null, '1', 'scale(1)'), timing[4]);
-                nextButton(110, timing[5]);
+                if($(window).width() < 750){
+                    nextButton(70, timing[5]);
+                }else{
+                    nextButton(110, timing[5]);
+                }
                 setTimeout(cred.bind(null, '1'), timing[6]);
                 setTimeout(()=>{
                     inprogress = false;
