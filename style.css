@@ -380,7 +380,36 @@ span{
     display: block;
 }
 
+.working-on{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background-color:rgb(37, 51, 59);
+    border:solid .5px #FF8F00;
+    position: absolute;
+    right:200px;
+    top:300px;
+    line-height:200px;
+    text-align:center;
+    color:#FF8F00;
+    cursor: pointer;
+    font-size:20px;
+    transition: .3s ease-in-out;
+    opacity: 0;
+}
 
+.working-on:hover {
+    transform: scale(.9)
+}
+.side-arrow{
+    display: inline-block;
+    border: solid #FF8F00;
+    border-width: 0 3px 3px 0;
+    transform: rotate(-45deg);
+    margin-right:10px;
+    padding: 3px;
+    transition: .3s ease-in-out;
+}
 #nextBtn{
     text-align:center;
     background-color:#FF8F00;
@@ -482,6 +511,9 @@ span{
     /*---- img page ----*/
     #imgpage{
         background-position: center;
+    }
+    .working-on{
+        display:none;
     }
 }
 
@@ -593,5 +625,8 @@ span{
         display:block;
         margin:0 auto;
         text-align:center;
+    }
+    .working-on{
+        display:none;
     }
 }

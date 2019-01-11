@@ -127,7 +127,9 @@ let timing = [
                 }else{
                     nextButton(110, timing[6]);
                 }
-               
+               setTimeout(() => {
+                workingOn('1');
+               }, timing[6]);
                 setTimeout(cred.bind(null, '1'), timing[7]);
                 setTimeout(()=>{
                     inprogress = false;
@@ -152,6 +154,9 @@ let timing = [
                 }else{
                     nextButton(110, timing[5]);
                 }
+                setTimeout(() => {
+                    workingOn('1');
+                   }, timing[5]);
                 setTimeout(cred.bind(null, '1'), timing[6]);
                 setTimeout(()=>{
                     inprogress = false;
@@ -167,6 +172,7 @@ let timing = [
             inprogress = true;
             if($('#cover').offset().top === -1000){   //from projects
                 pageBorder(homeBtn, proBtn, aboutBtn);
+                workingOn('0');
                 projectEdge(-40);
                 setTimeout(cred.bind(null, -40), 0);
                 nextButton(-50, 0);
@@ -211,6 +217,7 @@ let timing = [
             if($('#cover').offset().top === -1000 || $('#cover').offset().top === -1500){
                 pageBorder(aboutBtn, proBtn, homeBtn);
                 projectEdge(-40);
+                workingOn('0');
                 setTimeout(cred.bind(null, -40), 0);
                 nextButton(-50, 0);
                 infoBox('0', '140px');
@@ -505,6 +512,14 @@ let timing = [
         $('.infobox').css('transform',scl)
     }
 
+    function workingOn(o){
+        $('.working-on').css('opacity', o)
+    }
     
+    $('.working-on').click(()=>{
+        let url = 'https://pedantic-mirzakhani-d1a2a7.netlify.com';
+        window.open(url, '_blank');
+
+    })
   
 })
